@@ -3,6 +3,7 @@ package com.example.pm01ej3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ import com.example.pm01ej3.Tablas.Transacciones;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnsalvar;
+    Button btnsalvar,btnlista;
     EditText txtnombres, txtapellidos, txtedad, txtcorreo, txtdir;
 
     private void config()
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         txtcorreo = (EditText) findViewById(R.id.txtcorreo);
         txtdir = (EditText) findViewById(R.id.txtdir);
         btnsalvar = (Button) findViewById(R.id.btnsalvar);
+        btnlista = (Button) findViewById(R.id.btnlista);
 
     }
 
@@ -46,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AgregarPersona();
+            }
+        });
+
+        btnlista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ActivityList.class);
+                startActivity(intent);
             }
         });
     }
